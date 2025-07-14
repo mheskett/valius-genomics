@@ -1,0 +1,18 @@
+### cat
+cat RNASeq-tumor-LH00344_144_22MJ5GLT4_1_1.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_2_1.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_3_1.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_4_1.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_5_1.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_6_1.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_7_1.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_8_1.fastq.gz > cheng.tumor.rnaseq.r1.fastq.gz
+
+cat RNASeq-tumor-LH00344_144_22MJ5GLT4_1_2.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_2_2.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_3_2.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_4_2.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_5_2.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_6_2.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_7_2.fastq.gz \
+  RNASeq-tumor-LH00344_144_22MJ5GLT4_8_2.fastq.gz > cheng.tumor.rnaseq.r2.fastq.gz

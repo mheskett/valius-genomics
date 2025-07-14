@@ -1,0 +1,37 @@
+#!/bin/bash
+###
+cat WES-normal-LH00344_144_22MJ5GLT4_1_1.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_2_1.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_3_1.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_4_1.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_5_1.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_6_1.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_7_1.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_8_1.fastq.gz > cheng.normal.wes.r1.fastq.gz
+
+cat WES-normal-LH00344_144_22MJ5GLT4_1_2.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_2_2.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_3_2.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_4_2.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_5_2.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_6_2.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_7_2.fastq.gz \
+ WES-normal-LH00344_144_22MJ5GLT4_8_2.fastq.gz > cheng.normal.wes.r2.fastq.gz
+
+cat WES-tumor-LH00344_144_22MJ5GLT4_1_1.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_2_1.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_3_1.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_4_1.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_5_1.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_6_1.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_7_1.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_8_1.fastq.gz > cheng.tumor.wes.r1.fastq.gz
+
+cat WES-tumor-LH00344_144_22MJ5GLT4_1_2.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_2_2.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_3_2.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_4_2.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_5_2.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_6_2.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_7_2.fastq.gz \
+  WES-tumor-LH00344_144_22MJ5GLT4_8_2.fastq.gz > cheng.tumor.wes.r2.fastq.gz

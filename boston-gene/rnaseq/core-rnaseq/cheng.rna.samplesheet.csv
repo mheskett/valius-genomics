@@ -1,0 +1,2 @@
+sample,fastq_1,fastq_2,strandedness
+tumor_rnaseq,/home/michael/cheng-project/boston-gene/rnaseq/fastq-jul25/cheng.tumor.rnaseq.r1.fastq.gz,/home/michael/cheng-project/boston-gene/rnaseq/fastq-jul25/cheng.tumor.rnaseq.r2.fastq.gz,auto
