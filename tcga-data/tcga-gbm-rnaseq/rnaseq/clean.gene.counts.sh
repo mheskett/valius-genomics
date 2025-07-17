@@ -15,7 +15,7 @@ for dir in */ ; do
         next
     }
     $1 ~ /^ENSG/ {
-        sub(/\.[0-9]+$/, "", $g);  # remove .version from ENSG ID
+        #sub(/\.[0-9]+$/, "", $g);  # remove .version from ENSG ID
         print $g "\t" $t
     }' "$infile" > "$outfile"
     
