@@ -1,0 +1,30 @@
+bcftools query -f '%CHROM\t%POS\t%FILTER\t%REF\t%ALT\t[%AD\t]\t%INFO/ANN\n' tumor_wes_vs_normal_wes.mutect2.filtered_snpEff.ann.vcf.gz | \
+awk 'BEGIN {
+    print "CHROM\tPOS\tFILTER\tREF\tALT\tTotalNormal\tRefNormal\tAltNormal\tNormalVAF\tTotalTumor\tRefTumor\tAltTumor\tTumorVAF\tANN"
+}
+{
+    chrom = $1;
+    pos = $2;
+    filt = $3;
+    ref = $4;
+    alt = $5;
+
+    split($6, ad_normal, ",");
+    split($7, ad_tumor, ",");
+
+    ref_normal = ad_normal[1];
+    alt_normal = ad_normal[2];
+    total_normal = ref_normal + alt_normal;
+
+    ref_tumor = ad_tumor[1];
+    alt_tumor = ad_tumor[2];
+    total_tumor = ref_tumor + alt_tumor;
+
+    normal_vaf = (total_normal > 0) ? alt_normal / total_normal : 0;
+    tumor_vaf = (total_tumor > 0) ? alt_tumor / total_tumor : 0;
+
+    ann = $8;
+
+    printf "%s\t%s\t%s\t%s\t%s\t%d\t%d\t%d\t%.4f\t%d\t%d\t%d\t%.4f\t%s\n", \
+           chrom, pos, filt, ref, alt, total_normal, ref_normal, alt_normal, normal_vaf, total_tumor, ref_tumor, alt_tumor, tumor_vaf, ann;
+}'
