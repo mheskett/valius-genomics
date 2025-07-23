@@ -6,6 +6,7 @@ from glob import glob
 import matplotlib.pyplot as plt
 import math
 from matplotlib.ticker import MaxNLocator
+import yaml
 
 # ────────────────────────────────────────────────────────────────
 # Set Streamlit page config
@@ -41,11 +42,17 @@ def load_symbol_map(map_file):
     return sym2ensg, ensg2sym
 
 # ────────────────────────────────────────────────────────────────
-# File Paths — Update these for your server!
+# File Paths — yaml config file
 # ────────────────────────────────────────────────────────────────
-tcga_dir = "/Users/michael/cheng-project/tcga-data/tcga-gbm-rnaseq/rnaseq"
-teresa_file = "/Users/michael/cheng-project/boston-gene/rnaseq/core-rnaseq/star_rsem_gencode-v36/rsem.merged.gene_tpm.cleaned.tsv"
-map_file = "/Users/michael/cheng-project/boston-gene/rnaseq/core-rnaseq/star_rsem_gencode-v36/gencode.v36.geneid.genename.map.txt"
+with open("config.yaml") as f:
+    config = yaml.safe_load(f)
+
+tcga_dir = config["tcga"]["tpm_dir"]
+teresa_file = config["shared"]["teresa_file"]
+map_file = config["shared"]["symbol_map"]
+# tcga_dir = "/Users/michael/cheng-project/tcga-data/tcga-gbm-rnaseq/rnaseq"
+# teresa_file = "/Users/michael/cheng-project/boston-gene/rnaseq/core-rnaseq/star_rsem_gencode-v36/rsem.merged.gene_tpm.cleaned.tsv"
+# map_file = "/Users/michael/cheng-project/boston-gene/rnaseq/core-rnaseq/star_rsem_gencode-v36/gencode.v36.geneid.genename.map.txt"
 
 # ────────────────────────────────────────────────────────────────
 # Load and merge data
