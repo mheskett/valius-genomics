@@ -1,0 +1,15 @@
+# Data input configuration for GBM histograms and somatic mutation table
+
+cptac:
+  tpm_dir: "/Users/michael/cheng-project/cptac-gbm/rnaseq-files/clean.tpm.files"
+
+tcga:
+  tpm_dir: "/Users/michael/cheng-project/tcga-data/tcga-gbm-rnaseq/rnaseq"
+
+shared:
+  teresa_file: "/Users/michael/cheng-project/boston-gene/rnaseq/core-rnaseq/star_rsem_gencode-v36/rsem.merged.gene_tpm.cleaned.tsv"
+  symbol_map: "/Users/michael/cheng-project/boston-gene/rnaseq/core-rnaseq/star_rsem_gencode-v36/gencode.v36.geneid.genename.map.txt"
+
+somatic_mutations:
+  summary_table: "/Users/michael/cheng-project/boston-gene/exome/core-sarek/results/annotation/tumor_wes_vs_normal_wes.mutect2.filtered_snpEff.ann.table.pass.txt"
+
