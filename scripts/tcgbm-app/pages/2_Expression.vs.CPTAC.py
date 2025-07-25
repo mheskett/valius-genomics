@@ -12,8 +12,11 @@ import yaml
 # Set Streamlit page config
 # ────────────────────────────────────────────────────────────────
 st.set_page_config(page_title="CPTAC GBM Gene Histogram Viewer", layout="wide")
-st.title("CPTAC GBM Gene Expression Visualizer")
-
+st.title("Gene Expression Visualizer")
+st.markdown(
+    "<h6 style='color: gray; font-weight: 400;'>Compare your gene expression data against hundreds of Glioblastoma samples from the Clinical Proteomic Tumor Analysis Consortium</h6>",
+    unsafe_allow_html=True
+)
 # ────────────────────────────────────────────────────────────────
 # Load Data (cached)
 # ────────────────────────────────────────────────────────────────
@@ -105,9 +108,9 @@ def plot_histograms(df, symbols, teresa_col="teresa_gbm"):
 
         ax.hist(vals, bins=30, color="steelblue", edgecolor="black")
         ax.axvline(tval, color="crimson", linestyle="--", linewidth=2,
-                   label=f"Teresa = {tval:.2f} ({percentile:.1f}%)")
+                   label=f"Teresa = {tval:.2f} ({percentile:.1f}th percentile)")
         ax.set_title(f"{sym}")
-        ax.set_xlabel("log2(TPM + 1)")
+        ax.set_xlabel("log2 Transcripts per Million")
         ax.set_ylabel("CPTAC sample count")
         ax.legend()
         ax.yaxis.set_major_locator(MaxNLocator(integer=True))  # 🔒 Force integer y-axis
@@ -123,7 +126,14 @@ def plot_histograms(df, symbols, teresa_col="teresa_gbm"):
 # ────────────────────────────────────────────────────────────────
 # UI Controls
 # ────────────────────────────────────────────────────────────────
-input_genes = st.text_input("Enter gene symbols (comma-separated):", "TP53,EGFR,CD274,IL6,IL10")
-if st.button("Plot Histograms"):
-    gene_list = [g.strip().upper() for g in input_genes.split(",") if g.strip()]
+all_gene_symbols = list(sym2ensg.keys())
+
+# Autocomplete multiselect input
+input_genes = st.multiselect(
+    "Select gene symbols:",
+    options=all_gene_symbols,
+    default=["TP53", "EGFR", "CD274", "IL6", "IL10"])
+if st.button("Plot Data"):
+    # No need to split, input_genes is already a list
+    gene_list = [g.strip().upper() for g in input_genes if g.strip()]
     plot_histograms(combined_log2, gene_list)

@@ -106,9 +106,9 @@ def plot_histograms(df, symbols, teresa_col="teresa_gbm"):
 
         ax.hist(vals, bins=30, color="steelblue", edgecolor="black")
         ax.axvline(tval, color="crimson", linestyle="--", linewidth=2,
-                   label=f"Teresa = {tval:.2f} ({percentile:.1f}%)")
+                   label=f"Teresa = {tval:.2f} ({percentile:.1f}th percentile)")
         ax.set_title(f"{sym}")
-        ax.set_xlabel("log2(TPM + 1)")
+        ax.set_xlabel("log2 Transcripts per Million")
         ax.set_ylabel("TCGA sample count")
         ax.legend()
         ax.yaxis.set_major_locator(MaxNLocator(integer=True))  # 🔒 Force integer y-axis

@@ -1,10 +1,8 @@
 import streamlit as st
-from PIL import Image
 
 st.set_page_config(page_title="BioData Explorer", layout="wide")
 # Display logo
-img = Image.open("/Users/michael/cheng-project/scripts/tcgbm-app/horizontal.png")
-st.image(img, width=200)  # Adjust width as needed
+st.image("horizontal.png", width=200)  # Adjust width as needed
 st.title("Welcome to the Valius BioData Explorer")
 st.markdown("""
 This is a multi-tool web app for exploring GBM expression data.
